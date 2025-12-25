@@ -1,0 +1,185 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  font-family: "Funnel Sans";
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 15px;
+  padding: 5px 10px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+main#app-content {
+  padding: 2rem;
+  background: white;
+  margin: 1rem auto;
+  max-width: 800px;
+  /* NOT WORKING*/
+  /* This is key for the animation */
+  transition: opacity 2s ease-in-out;
+}
+
+footer {
+  text-align: center;
+  /* padding: 1rem; */
+  background-color: #333;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.hero {
+  height: 60vh;
+  background: url(/images/hero-bg.jpg);
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.5); /* Makes text readable against image */
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.reveal-img {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.8s ease-out;
+}
+
+.reveal-img.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* New Animation: Entrance Blur-In */
+@keyframes blurIn {
+  from {
+    filter: blur(10px);
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    filter: blur(0);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-entrance {
+  animation: blurIn 0.8s ease-in-out forwards;
+}
+
+/* Image Card Styling */
+.image-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.image-card img {
+  width: 100%;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.image-card:hover img {
+  transform: scale(1.1);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+/* --- Button Styling --- */
+.btn {
+  display: inline-block;
+  background-color: #006400; /* Dark Snooker Green */
+  color: white;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  border: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: #004d00; /* Darker green on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 100, 0, 0.3);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* --- Booking Card Styling --- */
+.booking-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-top: 6px solid #006400; /* Green accent bar at the top */
+  transition: transform 0.3s ease;
+}
+
+.booking-card:hover {
+  transform: translateY(-5px); /* Subtle lift effect */
+}
+
+/* Styling for form elements inside the card */
+.booking-card label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+.booking-card select,
+.booking-card input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-sizing: border-box; /* Ensures padding doesn't break width */
+}
+
+/* --- Responsive Adjustment --- */
+@media (max-width: 768px) {
+  .grid-2 {
+    grid-template-columns: 1fr; /* Stack columns on mobile */
+  }
+}
